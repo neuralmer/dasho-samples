@@ -20,7 +20,10 @@ import android.widget.Toast;
 
 import java.lang.ref.WeakReference;
 import java.text.NumberFormat;
+import java.util.Random;
+
 import com.dasho.android.debug.other.ApplicationLogic;
+import com.dasho.android.debug.other.SomeClass;
 
 
 /**
@@ -37,6 +40,7 @@ public class FibActivity extends Activity implements OnClickListener {
     private FibTask fibTask;
     private static final int WARN_SEQUENCE = 30;
     private static final int MAX_SEQUENCE = 50;
+    private ApplicationLogic applicationLogic;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,6 +49,7 @@ public class FibActivity extends Activity implements OnClickListener {
         findViewById(R.id.calcFibBtn).setOnClickListener(this);
         seqNum = findViewById(R.id.fibSeqNum);
         fibNum = findViewById(R.id.calcFibRes);
+        applicationLogic = new ApplicationLogic(getApplicationContext());
     }
 
     /**
@@ -60,7 +65,8 @@ public class FibActivity extends Activity implements OnClickListener {
      * Processes the request
      */
     private void processFibRequest() {
-        if (fibNum.getText().toString().startsWith(getResources().getString(R.string.fibCalcProcessing))) {
+        if (fibNum.getText().toString().startsWith(getResources().getString(R.string.fibCalcProcessing)
+                + (applicationLogic.couldBeGood(new SomeClass()) == null ? "qq" : "vv"))) {
             Toast.makeText(getApplicationContext(), R.string.fibProc, Toast.LENGTH_SHORT).show();
             return;
         }

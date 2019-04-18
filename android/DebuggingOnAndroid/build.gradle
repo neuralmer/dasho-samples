@@ -1,18 +1,36 @@
 buildscript {
     repositories {
-        flatDir dirs: "${DASHO_HOME}/gradle"
+//        flatDir dirs: "${DASHO_HOME}/gradle"
+        maven { url 'https://maven.preemptive.com' }
         google()
         jcenter()
     }
 
     dependencies {
-        classpath 'com.preemptive:dasho:3.3.+'
-        classpath 'com.android.tools.build:gradle:3.3.0'
+//        classpath 'com.preemptive:dasho:3.3.+'
+//classpath 'com.preemptive.dasho:dasho-android:0.9.+'
+//classpath 'com.preemptive.dasho:dasho-android:0.9.0.37+fe0e861'
+//classpath 'com.preemptive.dasho:dasho-android:1.0.0.41+5352ba1'
+//        classpath 'com.android.tools.build:gradle:3.3.0'
+        classpath 'com.android.tools.build:gradle:3.4.0'
     }
 }
 
 apply plugin: 'com.android.application'
-apply from: 'dasho.gradle'
+//apply plugin: 'com.preemptive.dasho.android'
+//apply from: 'dasho.gradle'
+
+//dasho {
+//    home "/Applications/DashO/Contents/Java"
+//searchVersion "10"
+//    doxFilename = 'project.dox'
+//}
+android{buildTypes{debug{minifyEnabled true
+proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'migrated-rules.pro'
+}}}
+android{buildTypes{release{minifyEnabled true
+proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'migrated-rules.pro'
+}}}
 
 android {
     compileSdkVersion 28

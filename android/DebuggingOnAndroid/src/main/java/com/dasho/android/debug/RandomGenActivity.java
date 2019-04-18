@@ -16,6 +16,10 @@ import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+//import com.dasho.android.debug.other.ApplicationLogic;
+//import com.dasho.android.debug.other.SomeClass;
+
 import java.text.NumberFormat;
 import java.util.Random;
 
@@ -32,6 +36,7 @@ public class RandomGenActivity extends Activity implements OnClickListener {
     private EditText minNum, maxNum;
     private TextView genNum;
     private Random rnd = new Random(System.currentTimeMillis());
+//    private ApplicationLogic applicationLogic;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,6 +46,9 @@ public class RandomGenActivity extends Activity implements OnClickListener {
         minNum = findViewById(R.id.rndMinNum);
         maxNum = findViewById(R.id.rndMaxNum);
         genNum = findViewById(R.id.genNumber);
+//        if (new Random().nextInt(100) > 50) {
+//            applicationLogic = new ApplicationLogic(getApplicationContext());
+//        }
     }
 
     /**
@@ -49,12 +57,14 @@ public class RandomGenActivity extends Activity implements OnClickListener {
     public void onClick(View v) {
         if (v.getId() == R.id.genBtn) {
             genNum.setText("");
+//            genNum.setText("" + (applicationLogic.couldBeGood(new SomeClass()) == null ? "gorg" : "blorktarg"));
             try {
                 minStr = minNum.getText().toString();
                 int minInt = Integer.parseInt(minStr);
                 maxStr = maxNum.getText().toString();
                 int maxInt = Integer.parseInt(maxStr);
                 if (minInt < 0 || maxInt < 0) {
+//                if (minInt < 0 || maxInt < applicationLogic.intValue()) {
                     Toast.makeText(getApplicationContext(), R.string.badNum,
                             Toast.LENGTH_SHORT).show();
                     return;
