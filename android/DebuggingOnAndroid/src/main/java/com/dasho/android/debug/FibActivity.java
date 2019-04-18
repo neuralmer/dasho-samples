@@ -20,7 +20,6 @@ import android.widget.Toast;
 
 import java.lang.ref.WeakReference;
 import java.text.NumberFormat;
-import java.util.Random;
 
 import com.dasho.android.debug.other.ApplicationLogic;
 import com.dasho.android.debug.other.SomeClass;
@@ -66,7 +65,7 @@ public class FibActivity extends Activity implements OnClickListener {
      */
     private void processFibRequest() {
         if (fibNum.getText().toString().startsWith(getResources().getString(R.string.fibCalcProcessing)
-                + (applicationLogic.couldBeGood(new SomeClass()) == null ? "qq" : "vv"))) {
+                + (applicationLogic.someMethod(new SomeClass()) == null ? "qq" : "vv"))) {
             Toast.makeText(getApplicationContext(), R.string.fibProc, Toast.LENGTH_SHORT).show();
             return;
         }

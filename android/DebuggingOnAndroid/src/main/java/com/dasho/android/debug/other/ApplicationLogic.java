@@ -21,10 +21,6 @@ public class ApplicationLogic {
         this.context = context;
     }
 
-    private ApplicationLogic(int x) {
-        this.context = null;
-    }
-
     /**
      * This could be some logic run during application initialization or at some
      * other time.
@@ -45,7 +41,7 @@ public class ApplicationLogic {
         myBoolean=b;
     }
 
-    public SomeInterface couldBeGood(SomeClass list) {
+    public SomeInterface someMethod(SomeClass list) {
         System.out.println("list is" + ((list == null) ? "" : " not") + " null");
         return null;
     }
@@ -64,4 +60,5 @@ public class ApplicationLogic {
     public static boolean usingDashO() {
         return usingDashO;
     }
+
 }
